@@ -4,6 +4,7 @@ Template.newItem.events({
     
     properties = {
       title: $(event.target).find("input[type='text']").val(),
+      createdAt: new Date(),
       completed: false
     }
 

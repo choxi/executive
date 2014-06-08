@@ -1,6 +1,14 @@
 Template.items.helpers({
   items: function() {
-    return Items.find();
+    var items = Items.find().fetch();
+
+    var groupedDates = _.groupBy(_.pluck(items, 'CreatedDate'));
+
+    _.each(_.values(groupedDates), function(dates) {
+      console.log({Date: dates[0], Total: dates.length});
+    });
+
+    return items;
   },
 
   checked: function() {
