@@ -1,0 +1,15 @@
+<template name="items">
+  <div class="col-md-8 col-md-offset-2">
+    <ul class="list-group">
+      {{#each items }}
+        <li class="list-group-item">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" {{ checked }}>{{ title }}
+            </label>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
