@@ -1,1 +1,17 @@
 /* CSS declarations go here */
+
+.glyphicon.glyphicon-remove-circle {
+  top: 10px;
+  font-size: 22px;
+  color: gray;
+  display: none;
+  left: 20px;
+}
+
+.glyphicon.glyphicon-remove-circle:hover {
+  cursor: pointer;
+}
+
+.list-group-item:hover .glyphicon-remove-circle {
+  display: block;
+}

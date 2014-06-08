@@ -21,6 +21,13 @@ Template.items.events({
         alert(error.reason);
       }
     });
+  },
 
+  "click .glyphicon-remove-circle": function(event) {
+    event.preventDefault();
+
+    if (confirm("Delete this item?")) {
+      Items.remove(this._id);
+    }
   }
 });
