@@ -1,5 +1,13 @@
 /* CSS declarations go here */
 
+.row.items {
+  margin-top: 20px;
+}
+
+form button {
+  margin-top: 24px;
+}
+
 .glyphicon.glyphicon-remove-circle {
   top: 10px;
   font-size: 22px;
