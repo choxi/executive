@@ -2,13 +2,19 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "bootstrap-3": {}
+      "bootstrap-3": {},
+      "bootstrap-datepicker2": {}
     },
     "packages": {
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v3.1.1-1",
         "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+      },
+      "bootstrap-datepicker2": {
+        "git": "https://github.com/deepwell/meteor-bootstrap-datepicker.git",
+        "tag": "v1.2.0",
+        "commit": "b7de18a7cc651ea665cda75048663f90d1a11d10"
       }
     }
   }

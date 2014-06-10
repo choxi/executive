@@ -6,25 +6,31 @@
           <div class="panel-heading"> {{ formattedDate }} </div>
           <ul class="list-group">
             {{#each items }}
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-md-11">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" {{ checked }}>{{ title }}
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="col-md-1">
-                    <span class="glyphicon glyphicon-remove-circle"></span>
-                  </div>
-                </div>
-              </li>
+              {{> item }}
             {{/each}}
           </ul>
         </div>
       {{/each}}
     </div>
   </div>
+</template>
+
+<template name="item">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" {{ checked }}>{{ title }}
+          </label>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="datepicker">
+      </div>
+      <div class="col-md-1">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+      </div>
+    </div>
+  </li>
 </template>

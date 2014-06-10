@@ -1,10 +1,18 @@
+// ****************************************************************************
+// Items Template
+
 Template.items.helpers({
   itemsByDate: function() {
     var items = Items.find().fetch();
-    var groupedByDate = _.groupBy(items, 'dueAt')
+    var groupedByDate = _.groupBy(items, function(item) {
+      return (new Date(item.dueAt)).toDateString();
+    });
+
+    var groupedArray = _.map(groupedByDate, function(value, key) { return {date: key, items: value}; });
+    var sortedArray = _.sortBy(groupedArray, 'date');
 
 
-    return _.map(groupedByDate, function(value, key) { return {date: key, items: value}; });
+    return sortedArray;
   },
 
   checked: function() {
@@ -22,7 +30,7 @@ Template.items.helpers({
 
 Template.items.events({
   "click input[type='checkbox']": function(event) {
-    properties = {completed: $(event.target).is(":checked")}
+    properties = {completed: $(event.target).is(":checked")};
 
     Items.update(this._id, {$set: properties}, function(error) {
       if (error) {
@@ -37,5 +45,23 @@ Template.items.events({
     if (confirm("Delete this item?")) {
       Items.remove(this._id);
     }
+  }
+});
+
+// ****************************************************************************
+// Item Template
+
+Template.item.rendered = function() {
+  $('.datepicker').datepicker();
+}
+
+Template.item.events({
+  "change input.datepicker": function(event) {
+    properties = {dueAt: $(event.target).val()};
+    Items.update(this._id, {$set: properties}, function(error) {
+      if (error) {
+        alert(error.reason)
+      }
+    });
   }
 });
