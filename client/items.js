@@ -1,14 +1,10 @@
 Template.items.helpers({
-  items: function() {
+  itemsByDate: function() {
     var items = Items.find().fetch();
+    var groupedByDate = _.groupBy(items, 'dueAt')
 
-    var groupedDates = _.groupBy(_.pluck(items, 'CreatedDate'));
 
-    _.each(_.values(groupedDates), function(dates) {
-      console.log({Date: dates[0], Total: dates.length});
-    });
-
-    return items;
+    return _.map(groupedByDate, function(value, key) { return {date: key, items: value}; });
   },
 
   checked: function() {
@@ -17,6 +13,10 @@ Template.items.helpers({
     } else {
       return "";
     }
+  },
+
+  formattedDate: function() {
+    return (new Date(this.date)).toDateString();
   }
 });
 

@@ -1,25 +1,30 @@
 <template name="items">
   <div class="row items">
     <div class="col-md-8 col-md-offset-2">
-      <ul class="list-group">
-        {{#each items }}
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col-md-11">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" {{ checked }}>{{ title }}
-                  </label>
-                </div>
-              </div>
+      {{#each itemsByDate }}
+        <div class="panel panel-default">
+          <div class="panel-heading"> {{ formattedDate }} </div>
+          <ul class="list-group">
+            {{#each items }}
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-md-11">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" {{ checked }}>{{ title }}
+                      </label>
+                    </div>
+                  </div>
 
-              <div class="col-md-1">
-                <span class="glyphicon glyphicon-remove-circle"></span>
-              </div>
-            </div>
-          </li>
-        {{/each}}
-      </ul>
+                  <div class="col-md-1">
+                    <span class="glyphicon glyphicon-remove-circle"></span>
+                  </div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/each}}
     </div>
   </div>
 </template>
