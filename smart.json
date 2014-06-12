@@ -1,6 +1,7 @@
 {
   "packages": {
     "bootstrap-3": {},
-    "bootstrap-datepicker2": {}
+    "bootstrap-datepicker2": {},
+    "moment": {}
   }
 }

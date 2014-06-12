@@ -50,6 +50,11 @@ Template.items.events({
 
 // ****************************************************************************
 // Item Template
+Template.item.helpers({
+  placeholderDate: function() {
+    return moment(this.dueAt).format('L');  
+  }
+})
 
 Template.item.rendered = function() {
   $('.datepicker').datepicker();
