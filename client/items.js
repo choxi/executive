@@ -57,7 +57,9 @@ Template.item.helpers({
 })
 
 Template.item.rendered = function() {
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+    autoclose: true
+  });
 }
 
 Template.item.events({
