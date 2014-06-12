@@ -3,7 +3,10 @@
   "dependencies": {
     "basePackages": {
       "bootstrap-3": {},
-      "bootstrap-datepicker2": {},
+      "bootstrap-datepicker2": {
+        "git": "https://github.com/choxi/meteor-bootstrap-datepicker.git",
+        "branch": "master"
+      },
       "moment": {}
     },
     "packages": {
@@ -13,9 +16,9 @@
         "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
       },
       "bootstrap-datepicker2": {
-        "git": "https://github.com/deepwell/meteor-bootstrap-datepicker.git",
-        "tag": "v1.2.0",
-        "commit": "b7de18a7cc651ea665cda75048663f90d1a11d10"
+        "git": "https://github.com/choxi/meteor-bootstrap-datepicker.git",
+        "branch": "master",
+        "commit": "079f5ee0bd4a68c87af8df6f3c78429c25781f26"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
