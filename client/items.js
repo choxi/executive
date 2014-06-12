@@ -24,7 +24,10 @@ Template.items.helpers({
   },
 
   formattedDate: function() {
-    return (new Date(this.date)).toDateString();
+    if(this.date == "Invalid Date")
+      return "Backlog";
+    else
+      return (new Date(this.date)).toDateString();
   }
 });
 
@@ -52,7 +55,8 @@ Template.items.events({
 // Item Template
 Template.item.helpers({
   placeholderDate: function() {
-    return moment(this.dueAt).format('L');  
+    if(typeof this.dueAt != "undefined")
+      return moment(this.dueAt).format('L');
   }
 })
 
