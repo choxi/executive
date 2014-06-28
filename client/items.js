@@ -15,14 +15,6 @@ Template.items.helpers({
     return sortedArray;
   },
 
-  checked: function() {
-    if(this.completed) {
-      return "checked";
-    } else {
-      return "";
-    }
-  },
-
   formattedDate: function() {
     if(this.date == "Invalid Date")
       return "Backlog";
@@ -57,6 +49,14 @@ Template.item.helpers({
   placeholderDate: function() {
     if(typeof this.dueAt != "undefined")
       return moment(this.dueAt).format('L');
+  },
+
+  checked: function() {
+    if(this.completed) {
+      return "checked";
+    } else {
+      return "";
+    }
   }
 })
 
