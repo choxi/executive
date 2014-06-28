@@ -70,11 +70,11 @@ Template.item.rendered = function() {
 
 Template.item.events({
   "change input.datepicker": function(event) {
-    properties = {dueAt: $(event.target).val()};
-    Items.update(this._id, {$set: properties}, function(error) {
-      if (error) {
-        alert(error.reason)
-      }
+    item = {dueAt: $(event.target).val()};
+
+    Meteor.call('updateItem', this._id, item, function(error, id) {
+      if (error)
+        return alert(error.reason);
     });
   }
 });

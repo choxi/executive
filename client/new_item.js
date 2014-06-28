@@ -2,12 +2,13 @@ Template.newItem.events({
   "submit form": function (event) {
     event.preventDefault();
     
-    properties = {
+    item = {
       title: $(event.target).find("input[type='text']").val(),
-      createdAt: new Date(),
-      completed: false
     }
 
-    Items.insert(properties);
+    Meteor.call('createItem', item, function(error, id) {
+      if (error)
+        return alert(error.reason);
+    });
   }
 });
