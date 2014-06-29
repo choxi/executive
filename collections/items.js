@@ -3,6 +3,9 @@ Items = new Meteor.Collection('items');
 Items.allow({
   remove: function(userId, doc) {
     return doc && doc.userId === userId;
+  },
+  update: function(userId, doc) {
+    return doc && doc.userId === userId;
   }
 });
 
