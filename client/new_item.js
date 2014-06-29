@@ -10,5 +10,8 @@ Template.newItem.events({
       if (error)
         return alert(error.reason);
     });
+
+    // clear the text field
+    $(event.target).find("input[type='text']").val("");
   }
 });
