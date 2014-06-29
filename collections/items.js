@@ -1,5 +1,11 @@
 Items = new Meteor.Collection('items');
 
+Items.allow({
+  remove: function(userId, doc) {
+    return doc && doc.userId === userId;
+  }
+});
+
 Meteor.methods({
   createItem: function(itemAttributes) {
     var user = Meteor.user()
