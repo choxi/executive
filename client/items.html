@@ -18,17 +18,17 @@
 <template name="item">
   <li class="list-group-item {{ checked }}">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <div class="checkbox">
           <label>
             <input type="checkbox" {{ checked }}>{{ title }}
           </label>
         </div>
       </div>
-      <div class="col-md-2">
+
+      <div class="col-md-4">
+        <a href="{{pathFor 'editItem'}}">Edit</a>
         <input type="text" class="datepicker form-control" value="{{ placeholderDate }}">
-      </div>
-      <div class="col-md-1">
         <span class="glyphicon glyphicon-remove-circle"></span>
       </div>
     </div>

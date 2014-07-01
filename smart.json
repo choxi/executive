@@ -5,6 +5,7 @@
       "git": "https://github.com/choxi/meteor-bootstrap-datepicker"
     },
     "moment": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "iron-router": {}
   }
 }
