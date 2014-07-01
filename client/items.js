@@ -12,7 +12,10 @@ Template.items.helpers({
 
     var groupedArray = _.map(groupedByDate, function(value, key) { return {date: key, items: value}; });
     var sortedArray = _.sortBy(groupedArray, function(group) {
-      return new Date(group.date)
+      if(group.date === "Invalid Date")
+        return new Date("3000-01-01"); // hack to keep backlog at the top
+      else
+        return new Date(group.date)
     }).reverse();
 
     return sortedArray;
