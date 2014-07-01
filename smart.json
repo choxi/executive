@@ -6,6 +6,7 @@
     },
     "moment": {},
     "accounts-ui-bootstrap-3": {},
-    "iron-router": {}
+    "iron-router": {},
+    "marked": {}
   }
 }
