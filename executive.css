@@ -49,3 +49,7 @@ form button {
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
+
+.list-group-item:hover .expanded hr {
+  border-top: 1px dashed #ddd;
+}
