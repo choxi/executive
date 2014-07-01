@@ -23,3 +23,16 @@ form button {
   color: #aaa;
   font-style: italic;
 }
+
+.list-group-item .action-bar {
+  margin-top: 10px;
+  display: none;
+}
+
+.list-group-item .action-bar a:hover {
+  cursor: pointer;
+}
+
+.list-group-item:hover .action-bar {
+  display: block;
+}
