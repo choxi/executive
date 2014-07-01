@@ -20,6 +20,11 @@ form button {
   cursor: pointer;
 }
 
+.list-group-item.checked .checkbox label{
+  color: #aaa;
+  font-style: italic;
+}
+
 .list-group-item:hover .glyphicon-remove-circle {
   display: block;
 }
