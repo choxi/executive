@@ -11,8 +11,9 @@ Template.items.helpers({
     });
 
     var groupedArray = _.map(groupedByDate, function(value, key) { return {date: key, items: value}; });
-    var sortedArray = _.sortBy(groupedArray, 'date');
-
+    var sortedArray = _.sortBy(groupedArray, function(group) {
+      return new Date(group.date)
+    }).reverse();
 
     return sortedArray;
   },
