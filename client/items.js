@@ -36,7 +36,7 @@ Template.items.events({
     });
   },
 
-  "click .glyphicon-remove-circle": function(event) {
+  "click .remove-item": function(event) {
     event.preventDefault();
 
     if (confirm("Delete this item?")) {
@@ -75,6 +75,22 @@ Template.item.events({
     Meteor.call('updateItem', this._id, item, function(error, id) {
       if (error)
         return alert(error.reason);
+    });
+  },
+
+  "click .change-date": function(event) {
+    $anchor = $(event.target);
+    itemId = this._id
+
+    $anchor.datepicker("show").on("changeDate", function(event) {
+      item = {dueAt: event.date};
+
+      Meteor.call('updateItem', itemId, item, function(error, id) {
+        if (error)
+          return alert(error.reason);
+      });
+
+      $anchor.datepicker("hide");
     });
   }
 });

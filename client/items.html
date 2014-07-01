@@ -18,7 +18,7 @@
 <template name="item">
   <li class="list-group-item {{ checked }}">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="checkbox">
           <label>
             <input type="checkbox" {{ checked }}>{{ title }}
@@ -26,10 +26,12 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <a href="{{pathFor 'editItem'}}">Edit</a>
-        <input type="text" class="datepicker form-control" value="{{ placeholderDate }}">
-        <span class="glyphicon glyphicon-remove-circle"></span>
+        |
+        <a class="change-date" data-date-format="mm/dd/yyy" data-date="{{ placeholderDate }}">Change Date</a>
+        |
+        <a class="remove-item">Remove</a>
       </div>
     </div>
   </li>
