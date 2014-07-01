@@ -24,7 +24,10 @@ form button {
   color: #aaa;
   font-style: italic;
 }
+.list-group-item input.datepicker {
+  display: none;
+}
 
-.list-group-item:hover .glyphicon-remove-circle {
+.list-group-item:hover .glyphicon-remove-circle, .list-group-item:hover input.datepicker {
   display: block;
 }
