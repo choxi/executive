@@ -34,5 +34,14 @@
         <a class="remove-item">Remove</a>
       </div>
     </div>
+
+    {{#if body}}
+    <div class="row expanded">
+      <hr>
+      <div class="col-md-12">
+        {{ body }}
+      </div>
+    </div>
+    {{/if}}
   </li>
 </template>

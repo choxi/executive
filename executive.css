@@ -36,3 +36,16 @@ form button {
 .list-group-item:hover .action-bar {
   display: block;
 }
+
+.list-group-item .expanded {
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.list-group-item:hover .expanded {
+  max-height: 1000px;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
