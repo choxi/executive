@@ -66,12 +66,6 @@ Template.item.helpers({
   }
 })
 
-Template.item.rendered = function() {
-  $('.datepicker').datepicker({
-    autoclose: true
-  });
-}
-
 Template.item.events({
   "change input.datepicker": function(event) {
     item = {dueAt: $(event.target).val()};
