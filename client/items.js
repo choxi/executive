@@ -46,6 +46,11 @@ Template.items.events({
     if (confirm("Delete this item?")) {
       Items.remove(this._id);
     }
+  },
+
+  "click .list-group-item": function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("expanded")
   }
 });
 
