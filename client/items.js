@@ -48,9 +48,10 @@ Template.items.events({
     }
   },
 
-  "click .list-group-item": function(event) {
+  "click .expand-item": function(event) {
     event.preventDefault();
-    $(event.currentTarget).toggleClass("expanded")
+
+    $(event.currentTarget).closest(".list-group-item").toggleClass("expanded")
   }
 });
 
