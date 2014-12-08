@@ -5,7 +5,7 @@ Meteor.subscribe('items');
 
 Template.items.helpers({
   itemsByDate: function() {
-    var items = Items.find({}, {sort: {created_at: -1}, limit: 50}).fetch();
+    var items = Items.find({}, {sort: {created_at: 1}, limit: 50}).fetch();
     var groupedByDate = _.groupBy(items, function(item) {
       return (new Date(item.dueAt)).toDateString();
     });
