@@ -6,8 +6,12 @@ Meteor.subscribe('items');
 Template.items.helpers({
   itemsByDate: function() {
     var items = Items.find().fetch();
+
     var groupedByDate = _.groupBy(items, function(item) {
-      return (new Date(item.dueAt)).toDateString();
+      if (typeof item.dueAt == "undefined" || item.dueAt == null)
+        return (new Date(undefined)).toDateString();
+      else
+        return (new Date(item.dueAt)).toDateString();
     });
 
     var groupedArray = _.map(groupedByDate, function(value, key) { return {date: key, items: value}; });
@@ -95,6 +99,16 @@ Template.item.events({
       });
 
       $anchor.datepicker("hide");
+    });
+  },
+
+
+  "click .backlog-item": function(event) {
+    event.preventDefault();
+
+    Meteor.call('updateItem', this._id, {dueAt: null}, function(error, id) { // hack to keep backlog at the top
+      if (error)
+        return alert(error.reason);
     });
   }
 });

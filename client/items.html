@@ -19,7 +19,7 @@
 <template name="item">
   <li class="list-group-item {{ checked }}">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="checkbox">
           <label>
             <input type="checkbox" {{ checked }}>{{ title }}
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 action-bar">
+      <div class="col-md-6 action-bar">
         <a href="{{pathFor 'editItem'}}">Edit</a>
         |
         <a class="change-date" data-date-format="mm/dd/yyyy" data-date="{{ placeholderDate }}" data-date-today-highlight="true">Change Date</a>
@@ -35,6 +35,8 @@
         <a class="remove-item">Remove</a>
         |
         <a class="expand-item">Expand</a>
+        |
+        <a class="backlog-item">Backlog Item</a>
       </div>
     </div>
 
