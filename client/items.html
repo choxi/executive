@@ -18,6 +18,10 @@
 
 <template name="item">
   <li class="list-group-item {{ checked }}">
+    {{#if stale }}
+      <div class="tab stale">
+      </div>
+    {{/if}}
     <div class="row">
       <div class="col-md-6">
         <div class="checkbox">
@@ -41,12 +45,12 @@
     </div>
 
     {{#if body}}
-    <div class="row body">
-      <hr>
-      <div class="col-md-12">
-        {{# markdown }}{{ body }}{{/ markdown }}
+      <div class="row body">
+        <hr>
+        <div class="col-md-12">
+          {{# markdown }}{{ body }}{{/ markdown }}
+        </div>
       </div>
-    </div>
     {{/if}}
   </li>
 </template>

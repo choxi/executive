@@ -73,6 +73,13 @@ Template.item.helpers({
     } else {
       return "";
     }
+  },
+
+  stale: function() {
+    created   = moment(this.createdAt);
+    staleDate = moment().subtract(14, 'days');
+
+    return created.isBefore(staleDate);
   }
 })
 
