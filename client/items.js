@@ -76,6 +76,9 @@ Template.item.helpers({
   },
 
   stale: function() {
+    if(this.completed)
+      return false;
+
     created   = moment(this.createdAt);
     staleDate = moment().subtract(14, 'days');
 
