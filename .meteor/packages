@@ -6,7 +6,7 @@
 standard-app-packages
 ian:bootstrap-3
 underscore
-bootstrap-datepicker2
+rajit:bootstrap3-datepicker
 mrt:moment@2.6.0
 accounts-password
 mrt:accounts-ui-bootstrap-3@0.3.0-1
