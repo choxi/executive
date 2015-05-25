@@ -22,7 +22,10 @@ Meteor.methods({
       throw new Meteor.Error(422, 'Please fill in a title');
 
     // parse out any hashtags
-    hashtags = itemAttributes.title.match(/#\w+/g);
+    hashtagRegex           = / #(\w|-|_)+/g
+    hashtags              = itemAttributes.title.match(hashtagRegex);
+    hashtags              = _(hashtags).map(function(tag) {return tag.trim().replace("#", "")} )
+    itemAttributes.title  = itemAttributes.title.replace(hashtagRegex, "")
 
     var itemId = Items.insert({
       userId: user._id,
