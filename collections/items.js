@@ -21,11 +21,15 @@ Meteor.methods({
     if (!itemAttributes.title)
       throw new Meteor.Error(422, 'Please fill in a title');
 
+    // parse out any hashtags
+    hashtags = itemAttributes.title.match(/#\w+/g);
+
     var itemId = Items.insert({
       userId: user._id,
       title: itemAttributes.title,
       createdAt: new Date().getTime(),
-      completed: false
+      completed: false,
+      hashtags: hashtags
     });
 
     return itemId;

@@ -1,4 +1,5 @@
 <template name="items">
+  <a href="{{pathFor 'showHashtag'}}">Seven</a>
   {{> newItem }}
   <div class="row items">
     <div class="col-md-8 col-md-offset-2">
@@ -14,43 +15,4 @@
       {{/each}}
     </div>
   </div>
-</template>
-
-<template name="item">
-  <li class="list-group-item {{ checked }}">
-    {{#if stale }}
-      <div class="tab stale">
-      </div>
-    {{/if}}
-    <div class="row">
-      <div class="col-md-6">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" {{ checked }}>{{ title }}
-          </label>
-        </div>
-      </div>
-
-      <div class="col-md-6 action-bar">
-        <a href="{{pathFor 'editItem'}}">Edit</a>
-        |
-        <a class="change-date" data-date-format="mm/dd/yyyy" data-date="{{ placeholderDate }}" data-date-today-highlight="true">Change Date</a>
-        |
-        <a class="remove-item">Remove</a>
-        |
-        <a class="expand-item">Expand</a>
-        |
-        <a class="backlog-item">Backlog Item</a>
-      </div>
-    </div>
-
-    {{#if body}}
-      <div class="row body">
-        <hr>
-        <div class="col-md-12">
-          {{# markdown }}{{ body }}{{/ markdown }}
-        </div>
-      </div>
-    {{/if}}
-  </li>
 </template>
