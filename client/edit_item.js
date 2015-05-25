@@ -15,3 +15,10 @@ Template.editItem.events({
     });
   }
 });
+
+Template.editItem.helpers({
+  titleWithHashtags: function() {
+    formattedHashtags = _(this.hashtags).map(function(tag) { return "#" + tag })
+    return this.title + " " + formattedHashtags.join(" ");
+  }
+});

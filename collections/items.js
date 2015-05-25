@@ -48,6 +48,13 @@ Meteor.methods({
     if (item.userId != user._id)
       throw new Meteor.Error(401, 'You can only edit your own items');
 
+    // parse out any hashtags
+    hashtagRegex            = / #(\w|-|_)+/g
+    hashtags                = itemAttributes.title.match(hashtagRegex);
+    hashtags                = _(hashtags).map(function(tag) {return tag.trim().replace("#", "")} )
+    itemAttributes.title    = itemAttributes.title.replace(hashtagRegex, "")
+    itemAttributes.hashtags = hashtags
+
     Items.update(itemId, {$set: itemAttributes});
   }
 });
