@@ -78,3 +78,7 @@ a.hashtag:hover {
   text-decoration: none;
   color: #666;
 }
+
+.showHashtag .results-bar {
+  text-align: right;
+}

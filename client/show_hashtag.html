@@ -1,13 +1,25 @@
 <template name='showHashtag'>
-  <div class="row items">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>#{{ hashtag }}</h1>
-      <div class="panel panel-default">
-        <ul class="list-group">
-          {{#each items }}
-            {{> item }}
-          {{/each}}
-        </ul>
+  <div class="showHashtag">
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <a href="/">
+          <h3> Back </h3>
+        </a>
+      </div>
+      <div class="results-bar col-md-2 col-md-offset-4">
+        <h3>#{{ hashtag }}</h3>
+      </div>
+    </div>
+
+    <div class="row items">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+          <ul class="list-group">
+            {{#each items }}
+              {{> item }}
+            {{/each}}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
