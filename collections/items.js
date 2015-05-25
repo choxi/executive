@@ -21,18 +21,14 @@ Meteor.methods({
     if (!itemAttributes.title)
       throw new Meteor.Error(422, 'Please fill in a title');
 
-    // parse out any hashtags
-    hashtagRegex           = / #(\w|-|_)+/g
-    hashtags              = itemAttributes.title.match(hashtagRegex);
-    hashtags              = _(hashtags).map(function(tag) {return tag.trim().replace("#", "")} )
-    itemAttributes.title  = itemAttributes.title.replace(hashtagRegex, "")
+    itemAttributes = parseHashtagsFromTitle(itemAttributes);
 
     var itemId = Items.insert({
       userId: user._id,
       title: itemAttributes.title,
       createdAt: new Date().getTime(),
       completed: false,
-      hashtags: hashtags
+      hashtags: itemAttributes.hashtags
     });
 
     return itemId;
@@ -48,13 +44,21 @@ Meteor.methods({
     if (item.userId != user._id)
       throw new Meteor.Error(401, 'You can only edit your own items');
 
-    // parse out any hashtags
-    hashtagRegex            = / #(\w|-|_)+/g
-    hashtags                = itemAttributes.title.match(hashtagRegex);
-    hashtags                = _(hashtags).map(function(tag) {return tag.trim().replace("#", "")} )
-    itemAttributes.title    = itemAttributes.title.replace(hashtagRegex, "")
-    itemAttributes.hashtags = hashtags
+    if (itemAttributes.title) {
+      itemAttributes = parseHashtagsFromTitle(itemAttributes);
+    }
 
     Items.update(itemId, {$set: itemAttributes});
   }
 });
+
+var parseHashtagsFromTitle = function(item) {
+  // parse out any hashtags
+  hashtagRegex            = / #(\w|-|_)+/g
+  hashtags                = item.title.match(hashtagRegex);
+  hashtags                = _(hashtags).map(function(tag) {return tag.trim().replace("#", "")} )
+  item.title    = item.title.replace(hashtagRegex, "")
+  item.hashtags = hashtags
+
+  return item;
+}
