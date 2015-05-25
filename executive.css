@@ -69,3 +69,12 @@ form button {
 .list-group-item .tab.stale {
   background-color: #e74c3c;
 }
+
+a.hashtag {
+  color: #999;
+}
+
+a.hashtag:hover {
+  text-decoration: none;
+  color: #666;
+}
