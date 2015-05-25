@@ -1,9 +1,8 @@
 <template name='showHashtag'>
-  <h1>Hashtag</h1>
   <div class="row items">
     <div class="col-md-8 col-md-offset-2">
+      <h1>#{{ hashtag }}</h1>
       <div class="panel panel-default">
-        <div class="panel-heading"> {{ formattedDate }} </div>
         <ul class="list-group">
           {{#each items }}
             {{> item }}
