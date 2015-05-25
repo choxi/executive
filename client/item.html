@@ -10,11 +10,10 @@
           <label>
             <input type="checkbox" {{ checked }}>{{ title }}
           </label>
-          <div class="hashtags">
-            {{#each hashtags }}
-              <a href="/hashtags/{{ this }}">#{{ this }}</a>
-            {{/each}}
-          </div>
+
+          {{#each hashtags }}
+            <a href="/hashtags/{{ this }}">#{{ this }}</a>
+          {{/each}}
         </div>
       </div>
 
